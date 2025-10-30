@@ -1,97 +1,132 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# FitLynk 🏋️‍♂️
 
-# Getting Started
+**FitLynk** is a full-featured cross-platform gym management mobile app built using **React Native CLI** and **TypeScript**, with **Appwrite** as the backend. Designed with a clean and modern dark UI, the app helps users discover gyms, manage their workout schedules, and track fitness progress seamlessly.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 📱 Features
 
-## Step 1: Start Metro
+- 🔐 **User Authentication**  
+  - Register and login with Appwrite
+  - Fields: Username, Email, Phone, Password, Gender
+  - Secure session management
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- 🏠 **Home Screen**  
+  - Dynamic greeting with date/time  
+  - Daily motivational card  
+  - Current plan with crowd meter  
+  - Weekly goals tracker  
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- 🔍 **Explore Screen**  
+  - Search bar with filter chips (Location, Price, Flexibility, Rating)  
+  - Gym cards with logos, amenities, pricing, ratings, crowd levels  
+  - “View Gym” button and color-coded crowd meter  
 
-```sh
-# Using npm
-npm start
+- 📆 **Activity Screen**  
+  - Interactive calendar with workout/rest day tracking  
+  - ‘Set Workout’ for body parts & exercises  
+  - View today’s selected workouts  
 
-# OR using Yarn
-yarn start
-```
+- 🙍‍♂️ **Profile Page**  
+  - View & edit profile  
+  - Active membership info  
+  - Settings, Help & Support  
 
-## Step 2: Build and run your app
+- ✨ **Additional Highlights**  
+  - Built with React Native CLI (not Expo)  
+  - TypeScript for maintainable, scalable code  
+  - Appwrite for backend (authentication, database)  
+  - Splash screen & branded logo  
+  - Fully responsive with modern dark theme  
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+---
 
-### Android
+## 🛠️ Tech Stack
 
-```sh
-# Using npm
-npm run android
+| Tech                      | Use                                  |
+|---------------------------|--------------------------------------|
+| React Native CLI          | Mobile app development               |
+| TypeScript                | Type safety                          |
+| Appwrite                  | Auth, DB, storage (self-hosted BaaS) |
+| React Navigation          | Navigation between screens           |
+| react-native-calendars    | Calendar integration                 |
+| AsyncStorage              | Local storage (for session tokens)   |
+| react-native-vector-icons | Icons                                |
+| Linear Gradient           | Background designs                   |
 
-# OR using Yarn
-yarn android
-```
+---
 
-### iOS
+## 🧱 Folder Structure
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+FitLynk/
+├── src/
+│ ├── screens/ # Screen components
+│ ├── navigation/ # React Navigation setup
+│ ├── assets/ # Images, logos, icons
+│ ├── components/ # Reusable components (if any)
+│ └── styles/ # Common styles
+├── android/ # Native Android code
+├── ios/ # Native iOS code (if needed)
+├── App.tsx # Root component
+└── README.md
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+---
 
-```sh
-bundle install
-```
+## 🚀 How to Run the App
 
-Then, and every time you update your native dependencies, run:
+### 1. Clone the Repository
 
-```sh
-bundle exec pod install
-```
+```bash
+git clone https://github.com/yourusername/fitlynk.git
+cd fitlynk
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+###2. Install Dependencies
+npm install
+# or
+yarn install
 
-```sh
-# Using npm
-npm run ios
+3. Set Up Appwrite (Backend)
+Create an account at https://cloud.appwrite.io or self-host it
 
-# OR using Yarn
-yarn ios
-```
+Create a new project (e.g. FitLynk)
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+Set up:
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+Authentication: Email + Password
 
-## Step 3: Modify your app
+Users collection: with fields like username, phone, gender
 
-Now that you have successfully run the app, let's make changes!
+Database collections (if needed for gyms/workouts)
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+Note your projectId, endpoint, and API keys for integration
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+4. Configure Android
+Move project out of OneDrive or Desktop folders to avoid path issues
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+Create a Keystore if generating a release build
 
-## Congratulations! :tada:
+Run on emulator or device: npx react-native run-android
 
-You've successfully run and modified your React Native App. :partying_face:
+5. Build APK (Release)
+cd android
+./gradlew assembleRelease
+APK will be located at:
+android/app/build/outputs/apk/release/app-release.apk
 
-### Now what?
+📦 Future Improvements
+Push notifications for workout reminders
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+Admin panel for gym owners
 
-# Troubleshooting
+In-app purchases for premium plans
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+Chat with trainers
 
-# Learn More
+Sync with wearables (e.g. Fitbit)
 
-To learn more about React Native, take a look at the following resources:
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+🧑‍💻 Developed By
+Harsh Malvi
+React Native Developer | Mobile App Enthusiast
+LinkedIn • GitHub
+
+
+
